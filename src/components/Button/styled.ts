@@ -1,6 +1,34 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button`
+interface Props {
+  $variant?: "contained" | "outlined" | "text";
+}
+
+/**
+ * variants
+ */
+const containedStyle = css`
+  background-color: aqua;
+`;
+
+const outlinedStyle = css`
+  border: 1px solid red;
+`;
+
+const textStyle = css`
+  background-color: transparent;
+`;
+
+const variants = {
+  contained: containedStyle,
+  outlined: outlinedStyle,
+  text: textStyle,
+};
+
+/**
+ * basic button style
+ */
+export const StyledButton = styled.button<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,4 +52,7 @@ export const StyledButton = styled.button`
   &:active {
     opacity: 0.7;
   }
+
+  // variants
+  ${(props) => variants[props.$variant || "contained"]}
 `;

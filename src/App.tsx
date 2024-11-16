@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button></Button>
+        <Button>哈囉</Button>
       </ThemeProvider>
     </div>
   );

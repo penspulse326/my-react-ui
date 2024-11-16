@@ -2,8 +2,17 @@ import { StyledButton } from "./styled";
 
 interface ButtonProps {
   children?: React.ReactNode;
+  variant?: "contained" | "outlined" | "text";
 }
 
-export function Button(props: ButtonProps) {
-  return <StyledButton {...props}>按鈕</StyledButton>;
+export function Button({
+  children,
+  variant = "contained",
+  ...props
+}: ButtonProps) {
+  return (
+    <StyledButton $variant={variant} {...props}>
+      {children}
+    </StyledButton>
+  );
 }
