@@ -1,4 +1,4 @@
-// reference daisy ui retro: https://daisyui.com/docs/themes/
+// reference daisyUI retro: https://daisyui.com/docs/themes/
 export const theme = {
   colors: {
     primary: "#ef9995",
@@ -24,4 +24,6 @@ export const theme = {
 
     border: "#d8c8b0",
   },
+
+  spacing: (rate: number) => `${4 * rate}px`,
 };
