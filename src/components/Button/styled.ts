@@ -1,22 +1,31 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 interface Props {
-  $variant?: "contained" | "outlined" | "text";
+  $variant?: 'contained' | 'outlined' | 'text';
 }
 
 /**
  * variants
  */
 const containedStyle = css`
-  background-color: aqua;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 const outlinedStyle = css`
-  border: 1px solid red;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+
+  background-color: transparent;
 `;
 
 const textStyle = css`
+  border: 1px solid transparent;
+  border-radius: 0;
+
   background-color: transparent;
+
+  &:hover {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const variants = {
@@ -33,17 +42,17 @@ export const StyledButton = styled.button<Props>`
   justify-content: center;
   align-items: center;
 
-  min-width: 100px;
+  padding: ${({ theme }) => theme.spacing(2)} ${({ theme }) => theme.spacing(4)};
+  min-width: 36px;
   height: 36px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   outline: none;
   box-sizing: border-box;
 
   cursor: pointer;
 
-  transition: color 0.2s, background-color 0.2s, border 0.2s,
-    opacity 0.2s ease-in-out;
+  transition: color 0.2s, background-color 0.2s, border 0.2s, opacity 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.9;
@@ -54,5 +63,5 @@ export const StyledButton = styled.button<Props>`
   }
 
   // variants
-  ${(props) => variants[props.$variant || "contained"]}
+  ${({ $variant }) => variants[$variant || 'contained']}
 `;

@@ -1,6 +1,6 @@
-import { ThemeProvider } from "styled-components";
-import { theme } from "./styles/theme";
-import { Button } from "./components/Button";
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import { Button } from './components/Button';
 
 // Card component example
 // const Card = styled.div`
@@ -12,7 +12,9 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button>哈囉</Button>
+        <Button variant="contained">哈囉</Button>
+        <Button variant="outlined">哈囉</Button>
+        <Button variant="text">哈囉</Button>
       </ThemeProvider>
     </div>
   );
