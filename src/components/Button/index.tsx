@@ -1,3 +1,4 @@
+import { useColor } from '../../hooks/useColor';
 import { StyledButton } from './styled';
 
 interface ButtonProps {
@@ -6,8 +7,11 @@ interface ButtonProps {
 }
 
 export function Button({ children, variant = 'contained', ...props }: ButtonProps) {
+  const { getColor } = useColor();
+  const color = getColor('primary', true);
+
   return (
-    <StyledButton $variant={variant} {...props}>
+    <StyledButton $variant={variant} $color={color} {...props}>
       <span>{children}</span>
     </StyledButton>
   );
