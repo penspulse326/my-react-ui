@@ -19,13 +19,13 @@ const outlinedStyle = css<Props>`
 `;
 
 const textStyle = css<Props>`
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 0;
 
   background-color: transparent;
 
   &:hover {
-    border-bottom: 1px solid ${({ $themeColor }) => $themeColor};
+    border-bottom: 2px solid ${({ $themeColor }) => $themeColor};
   }
 `;
 
@@ -54,9 +54,10 @@ export const StyledButton = styled.button<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
 
-  padding: ${({ theme }) => theme.spacing(2)} ${({ theme }) => theme.spacing(4)};
-  min-width: 36px;
+  padding: ${({ theme }) => theme.spacing(2)} ${({ theme }) => theme.spacing(3)};
+  min-width: 80px;
   height: 36px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -76,8 +77,30 @@ export const StyledButton = styled.button<Props>`
   }
 
   // variants
-  ${({ $variant }) => variants[$variant || 'contained']}
+  ${({ $variant }) => variants[$variant!]}
 
   // disabled style
   ${({ disabled }) => disabled && disabledStyle}
+`;
+
+/** loader */
+export const Loader = styled.div<Props>`
+  width: 16px;
+  height: 16px;
+  border: 2px solid
+    ${({ $variant, $themeColor }) => ($variant === 'contained' ? '#fff' : $themeColor)};
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
