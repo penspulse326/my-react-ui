@@ -2,18 +2,18 @@ import styled, { css } from 'styled-components';
 
 interface Props {
   $variant?: 'contained' | 'outlined' | 'text';
-  $color?: string;
+  $themeColor?: string;
 }
 
 /**
  * variants
  */
 const containedStyle = css<Props>`
-  background-color: ${({ $color }) => $color};
+  background-color: ${({ $themeColor }) => $themeColor};
 `;
 
 const outlinedStyle = css<Props>`
-  border: 1px solid ${({ $color }) => $color};
+  border: 1px solid ${({ $themeColor }) => $themeColor};
 
   background-color: transparent;
 `;
@@ -25,7 +25,7 @@ const textStyle = css<Props>`
   background-color: transparent;
 
   &:hover {
-    border-bottom: 1px solid ${({ $color }) => $color};
+    border-bottom: 1px solid ${({ $themeColor }) => $themeColor};
   }
 `;
 
