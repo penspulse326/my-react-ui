@@ -16,12 +16,12 @@ const checkIsColor = (color: string): boolean => {
  * 2. 是否為合法色碼
  * 3. 檢查是否為 theme.colors 的 key（不是則回傳 primary）
  */
-export const useColor = (): { getColor: (themeColor: string, isDisabled: boolean) => string } => {
+export const useColor = () => {
   const theme = useTheme();
 
-  const getColor = (themeColor: string, isDisabled: boolean) => {
-    if (isDisabled) {
-      return theme.colors.bg.muted;
+  const getColor = (themeColor: string, isMuted: boolean) => {
+    if (isMuted) {
+      return theme.colors.text.light;
     }
 
     const isLegalColor = checkIsColor(themeColor);

@@ -36,6 +36,18 @@ const variants = {
 };
 
 /**
+ * disable style
+ */
+const disabledStyle = css<Props>`
+  cursor: not-allowed;
+
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
+`;
+
+/**
  * basic button style
  */
 export const StyledButton = styled.button<Props>`
@@ -65,4 +77,7 @@ export const StyledButton = styled.button<Props>`
 
   // variants
   ${({ $variant }) => variants[$variant || 'contained']}
+
+  // disabled style
+  ${({ disabled }) => disabled && disabledStyle}
 `;

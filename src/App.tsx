@@ -12,7 +12,9 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button variant="contained">哈囉</Button>
+        <Button variant="contained" isDisabled>
+          哈囉
+        </Button>
         <Button variant="outlined">哈囉</Button>
         <Button variant="text">哈囉</Button>
       </ThemeProvider>
