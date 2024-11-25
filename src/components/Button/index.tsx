@@ -1,5 +1,5 @@
 import { useColor } from '../../hooks/useColor';
-import { Loader, StyledButton } from './styled';
+import { StyledButton, Icon, LoadingAnimation } from './styled';
 
 interface ButtonProps {
   children?: React.ReactNode;
@@ -7,6 +7,10 @@ interface ButtonProps {
   themeColor?: string;
   isDisabled?: boolean;
   isLoading?: boolean;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export function Button({
@@ -15,6 +19,10 @@ export function Button({
   themeColor = 'primary',
   isDisabled = false,
   isLoading = false,
+  startIcon,
+  endIcon,
+  className,
+  style,
   ...props
 }: ButtonProps) {
   const { getColor } = useColor();
@@ -25,11 +33,19 @@ export function Button({
       $variant={variant}
       $themeColor={btnColor}
       disabled={isDisabled || isLoading}
+      className={className}
+      style={style}
       {...props}
     >
-      {isLoading && <Loader $variant={variant} />}
-
-      <span>{children}</span>
+      {isLoading ? (
+        <LoadingAnimation $variant={variant} $themeColor={btnColor} />
+      ) : (
+        <>
+          <Icon>{startIcon}</Icon>
+          <span>{children}</span>
+          <Icon>{endIcon}</Icon>
+        </>
+      )}
     </StyledButton>
   );
 }
