@@ -1,9 +1,6 @@
 import { useColor } from '../../hooks/useColor';
 import { StyledButton, Icon, LoadingAnimation } from './styled';
 
-/**
- * 這是一個按鈕元件
- */
 interface ButtonProps {
   /**
    * 按鈕文字
@@ -57,6 +54,9 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
+/**
+ * 這是一個按鈕元件，不然你想怎樣
+ */
 export function Button({
   children,
   variant = 'contained',
