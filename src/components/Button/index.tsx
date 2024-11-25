@@ -1,16 +1,60 @@
 import { useColor } from '../../hooks/useColor';
 import { StyledButton, Icon, LoadingAnimation } from './styled';
 
+/**
+ * 這是一個按鈕元件
+ */
 interface ButtonProps {
+  /**
+   * 按鈕文字
+   */
   children?: React.ReactNode;
+
+  /**
+   * 按鈕樣式
+   */
   variant?: 'contained' | 'outlined' | 'text';
+
+  /**
+   * 按鈕顏色
+   * 可以是色碼或是主題色關鍵字
+   */
   themeColor?: string;
+
+  /**
+   * 是否禁用
+   */
   isDisabled?: boolean;
+
+  /**
+   * 是否讀取中
+   */
   isLoading?: boolean;
+
+  /**
+   * 按鈕左側圖示
+   */
   startIcon?: React.ReactNode;
+
+  /**
+   * 按鈕右側圖示
+   */
   endIcon?: React.ReactNode;
+
+  /**
+   * className
+   */
   className?: string;
+
+  /**
+   * inline style
+   */
   style?: React.CSSProperties;
+
+  /**
+   * 點擊事件
+   */
+  onClick?: () => void;
 }
 
 export function Button({

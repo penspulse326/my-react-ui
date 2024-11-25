@@ -1,7 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import { Button } from './components/Button';
-import iconGear from './assets/icon-gear.svg';
 
 // Card component example
 // const Card = styled.div`
@@ -13,13 +12,7 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button
-          variant="contained"
-          isDisabled
-          isLoading
-          startIcon={<img src={iconGear} alt="icon" />}
-          endIcon={<img src={iconGear} alt="icon" />}
-        >
+        <Button variant="contained" isDisabled isLoading>
           哈囉
         </Button>
         <Button variant="outlined">哈囉</Button>
