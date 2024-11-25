@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import { Button } from './components/Button';
+import { Switch } from './components/Switch';
+import { useState } from 'react';
 
 // Card component example
 // const Card = styled.div`
@@ -9,14 +10,12 @@ import { Button } from './components/Button';
 // `;
 
 function App() {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button variant="contained" isDisabled isLoading>
-          哈囉
-        </Button>
-        <Button variant="outlined">哈囉</Button>
-        <Button variant="text">哈囉</Button>
+        <Switch isChecked={isChecked} onClick={() => setIsChecked(!isChecked)} />
       </ThemeProvider>
     </div>
   );
