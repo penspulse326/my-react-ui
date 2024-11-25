@@ -1,19 +1,22 @@
-import styled, { ThemeProvider } from "styled-components";
-import { theme } from "./styles/theme";
-import { Button } from "./components/Button";
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import { Button } from './components/Button';
 
 // Card component example
-const Card = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg.paper};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-`;
+// const Card = styled.div`
+//   background-color: ${({ theme }) => theme.colors.bg.paper};
+//   border: 1px solid ${({ theme }) => theme.colors.border};
+// `;
 
 function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button></Button>
-        <Card>123</Card>
+        <Button variant="contained" isDisabled isLoading>
+          哈囉
+        </Button>
+        <Button variant="outlined">哈囉</Button>
+        <Button variant="text">哈囉</Button>
       </ThemeProvider>
     </div>
   );
