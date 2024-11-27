@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface Props {
   $isChecked: boolean;
+  $themeColor?: string;
 }
 
 export const StyledSwitch = styled.button<Props>`
@@ -10,26 +11,27 @@ export const StyledSwitch = styled.button<Props>`
   display: flex;
   align-items: center;
 
-  width: 48px;
+  padding: 2px;
+  width: 40px;
   height: 24px;
 
   border: none;
   border-radius: 12px;
   outline: none;
 
-  background-color: black;
+  background-color: ${({ $themeColor }) => $themeColor};
 
   cursor: pointer;
 `;
 
 export const Thumb = styled.div<Props>`
   position: absolute;
-  left: ${({ $isChecked }) => ($isChecked ? 'calc(100% - 24px)' : '4px')};
+  left: ${({ $isChecked }) => ($isChecked ? '18px' : '2px')};
 
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
   transition: transform 0.2s ease-in-out;
 `;
